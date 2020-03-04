@@ -1,0 +1,37 @@
+{
+    "name": "eventstorming",
+    "displayName": "eventstorming",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "eventstorming",
+                "aliases": [
+                    "eventstorming",
+                    "eventstorming"
+                ],
+                "extensions": [
+                    "evst"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "eventstorming",
+                "scopeName": "source.evst",
+                "path": "./syntaxes/eventstorming.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^3.13.1"
+    }
+}
