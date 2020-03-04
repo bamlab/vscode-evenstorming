@@ -2,13 +2,60 @@
 "$schema": https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
 name: eventstorming
 patterns:
-  - include: "#keywords"
+  - include: "#bounded_context"
+  - include: "#workflow"
+  - include: "#triggered"
+  - include: "#input"
+  - include: "#output"
+  - include: "#side_effect"
+  - include: "#operator"
+  - include: "#special_word"
+  - include: "#data"
   - include: "#strings"
 repository:
-  keywords:
-    patterns:
-      - name: keyword.control.eventstorming
-        match: "\\b(if|while|for|return)\\b"
+  bounded_context:
+    match: "^(bounded context): (.*)$"
+    captures:
+      - name: keyword
+      - name: variable
+  workflow:
+    match: "^(workflow): (.*)$"
+    captures:
+      - name: keyword
+      - name: variable
+  triggered:
+    match: "^\\s+(triggered by):$"
+    captures:
+      - name: keyword
+      - name: variable
+  input:
+    match: "^\\s+(primary input|other input):$"
+    captures:
+      - name: keyword
+      - name: variable
+  output:
+    match: "^\\s+(output event):$"
+    captures:
+      - name: keyword
+      - name: variable
+  side_effect:
+    match: "^\\s+(side effect):$"
+    captures:
+      - name: keyword
+      - name: variable
+  data:
+    match: "^data (\\w+)\\s*=$"
+    captures:
+      - name: keyword
+      - name: variable
+  operator:
+    match: "(AND)"
+    captures:
+      - name: keyword.operator
+  special_word:
+    match: "(event)"
+    captures:
+      - name: keyword.operator
   strings:
     name: string.quoted.double.eventstorming
     begin: '"'
